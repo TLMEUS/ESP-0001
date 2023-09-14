@@ -1,0 +1,38 @@
+{% extends "layout.twig" %}
+{% block title %}ESP Addons{% endblock %}
+{% block body%}
+    <div class="w3-row">
+        <div class="w3-col s4">&nbsp;</div>
+        <div class="w3-col s4 w3-center">
+            <h3>Add a new addon to the {{ category.colName }} category</h3>
+            <a href="#" onclick="history.back()"><i class="material-icons w3-text-red">subdirectory_arrow_left</i></a>
+            <form action="/addon/addAddon" method="post">
+                <input name="colId" id="colId" type="hidden" value="{{ category.colId }}">
+                <hr style="height: 1px; background-color: #777777" />
+                <table style="width: 100%">
+                    <tr>
+                        <td>
+                            <label for="colTitle">Addon Title</label>
+                            <input class="w3-input" name="colTitle" id="colTitle" type="text">
+                        </td>
+                    </tr>
+                </table>
+                <hr style="height: 1px; background-color: #777777" />
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 50%;">
+                            <label for="colCost">Addon Cost</label>
+                            <input class="w3-input" type="number" name="colCost" step="0.01" id="colCost">
+                        </td>
+                        <td style="width: 50%;">
+                            <label for="colSku">Addon SKU</label>
+                            <input class="w3-input" type="text" name="colSku" id="colSku">
+                        </td>
+                    </tr>
+                </table>
+                <hr style="height: 1px; background-color: #777777" />
+                <input class="w3-button w3-blue w3-block" type="submit" value="Add Addon">
+            </form>
+        </div>
+    </div>
+{% endblock %}

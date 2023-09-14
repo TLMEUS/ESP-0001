@@ -1,0 +1,72 @@
+{% extends "layout.twig" %}
+{% block title %}ESP Plans{% endblock %}
+{% block body%}
+    <div class="w3-row">
+        <div class="w3-col s2">&nbsp;</div>
+        <div class="w3-col s8 w3-center">
+            <h4>Add a new plan to the {{ category.colName }} category.</h4>
+            <a href="#" onclick="history.back()"><i class="material-icons w3-text-red">subdirectory_arrow_left</i></a>
+            <form action="/plan/addPlan" method="post">
+                <input name="colCid" id="colCid" type="hidden" value="{{ category.colId }}">
+                <hr style="height: 1px; background-color: #777777" />
+                <table style="width: 100%">
+                    <tr>
+                        <td>
+                            <label for="colName">Plan Name</label>
+                            <input class="w3-input" name="colName" id="colName" type="text">
+                        </td>
+                    </tr>
+                </table>
+                <hr style="height: 1px; background-color: #777777" />
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 50%;">
+                            <label for="colMin">Minimum Product Value</label>
+                            <input class="w3-input" type="number" name="colMin" step="0.01" id="colMin">
+                        </td>
+                        <td style="width: 50%;">
+                            <label for="colMax">Maximum Product Value</label>
+                            <input class="w3-input" type="number" name="colMax" step="0.01" id="colMax">
+                        </td>
+                    </tr>
+                </table>
+                <hr style="height: 1px; background-color: #777777" />
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 33%;">
+                            <label for="colTier1term">Tier 1 Term</label>
+                            <input type="text" name="colTier1term" id="colTier1term" class="w3-input">
+                        </td>
+                        <td style="width: 33%;">
+                            <label for="colTier1cost">Tier 1 Cost</label>
+                            <input type="number" step="0.01" name="colTier1cost" id="colTier1cost" class="w3-input">
+                        </td>
+                        <td style="width: 34%;">
+                            <label for="colTier1sku">Tier 1 SKU</label>
+                            <input type="number" name="colTier1sku" id="colTier1sku" class="w3-input">
+                        </td>
+                    </tr>
+                </table>
+                <hr style="height: 1px; background-color: #777777" />
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 33%;">
+                            <label for="colTier2term">Tier 2 Term</label>
+                            <input type="text" name="colTier2term" id="colTier2term" class="w3-input">
+                        </td>
+                        <td style="width: 33%;">
+                            <label for="colTier2cost">Tier 2 Cost</label>
+                            <input type="number" step="0.01" name="colTier2cost" id="colTier2cost" class="w3-input">
+                        </td>
+                        <td style="width: 34%;">
+                            <label for="colTier2sku">Tier 2 SKU</label>
+                            <input type="number" name="colTier2sku" id="colTier2sku" class="w3-input">
+                        </td>
+                    </tr>
+                </table>
+                <hr style="height: 1px; background-color: #777777" />
+                <input class="w3-button w3-blue w3-block" type="submit" value="Add Plan">
+            </form>
+        </div>
+    </div>
+{% endblock %}

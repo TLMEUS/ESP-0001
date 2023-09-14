@@ -1,0 +1,30 @@
+{% extends "layout.twig" %}
+{% block title %}Home Page{% endblock %}
+{% block body %}
+<div class="w3-row">
+    <div class="w3-col s1">&nbsp;</div>
+    <div class="w3-col s10">
+        <p>This website will allow you to maintain the Extended Service Plans used by the ESPApp used by
+            employees to assist them in selling these plans to the customer.</p>
+        <p>The management of the plans is accomplished using three pages, linked above and described below.</p>
+        <ul class="w3-ul w3-large">
+            <li>
+                <span>Categories: </span><span class="w3-medium">This page allows you to view/modify the list
+                    of plan categories.</span>
+            </li>
+            <li>
+                <span>Plans:  </span><span class="w3-medium">This page is where you view/modify the actual
+                    plans, and assign them to the categories.</span>
+            </li>
+            <li>
+                <span>Addons: </span><span class="w3-medium">This page is where you view/modify the addons for
+                    the different categories.</span>
+            </li>
+            <li>
+                <span> API Key: </span><span class="w3-medium">On this page you request an API key to use our
+                    API.</span>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

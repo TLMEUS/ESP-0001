@@ -1,0 +1,33 @@
+{% extends "layout.twig" %}
+{% block title %}API Key Registration{% endblock %}
+{% block body %}
+    <div class="w3-row">
+        <div class="w3-col s4">&nbsp;</div>
+        <div class="w3-col s4 w3-center">
+            <h3>API Key Registration</h3>
+            <form class="w3-container" action="/home/saveAPIKey" method="post">
+                <table style="width: 100%">
+                    <tr>
+                        <td>
+                            <label for="colName">Name:</label>
+                            <input class="w3-input" name="colName" id="colName" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="colUsername">Username:</label>
+                            <input class="w3-input" name="colUsername" id="colUsername" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="colPassword">Password:</label>
+                            <input class="w3-input" name="colPassword" id="colPassword" type="text">
+                        </td>
+                    </tr>
+                </table>
+                <input class="w3-button w3-blue w3-block" type="submit" value="Register API">
+            </form>
+        </div>
+    </div>
+{% endblock %}

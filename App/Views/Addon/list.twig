@@ -1,0 +1,30 @@
+{% extends "layout.twig" %}
+{% block title %}ESP Addons{% endblock %}
+{% block body %}
+    <div class="w3-row">
+        <div class="w3-col s4">&nbsp;</div>
+        <div class="w3-col s4 w3-center">
+            <h1>{{ category.colName }} ESP Addons</h1>
+            <a href="#" onclick="history.back()"><i class="material-icons w3-text-red">subdirectory_arrow_left</i></a>
+            <a href="/addon/add/{{ category.colId }}"><i class="material-icons w3-text-red">add_circle_outline</i></a>
+            <table class="w3-table-all">
+                <tr>
+                    <th>Addon Name</th>
+                    <th>Cost</th>
+                    <th>SKU</th>
+                    <th>Options</th>
+                </tr>
+                {% for addon in addons %}
+                    <tr>
+                        <td>{{ addon.colTitle }}</td>
+                        <td>{{ addon.colCost }}</td>
+                        <td>{{ addon.colSku }}</td>
+                        <td>
+                            <a href="/addon/deleteAddon/{{ category.colId }}/{{ addon.colId }}"><i class="material-icons w3-text-red">delete</i></a>
+                            <a href="/addon/update/{{ category.colId }}/{{ addon.colId }}"><i class="material-icons w3-text-red">update</i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+{% endblock %}

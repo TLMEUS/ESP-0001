@@ -1,0 +1,36 @@
+{% extends "layout.twig" %}
+{% block title %}Update ESP Category{% endblock %}
+{% block body%}
+    <div class="w3-row">
+        <div class="w3-col s4">&nbsp;</div>
+        <div class="w3-col s4 w3-center">
+            <h1>Update ESP Category</h1>
+            <a href="/category/index">
+                <i class="material-icons" style="font-size:24px;color:red">subdirectory_arrow_left</i>
+            </a>
+            <div class="w3-panel w2-border">
+                <form class="w3-container" action="/category/updateData" method="post">
+                    <input name="colId" id="colId" type="hidden" value="{{ colId }}">
+                    <label for="colName"></label><input class="w3-input" name="colName" id="colName" type="text" value="{{ colName }}">
+                    <label>New Category Name</label>
+                    <label for="colTsFlag"></label><select class="w3-select" name="colTsFlag" id="colTsFlag">
+                        <option value="" disabled>  </option>
+                        {% if colTsFlag == "1" %}
+                            <option selected value='true'>True</option>
+                        {% else %}
+                            <option value='true'>True</option>
+                        {% endif %}
+                        {% if colTsFlag == "0" %}
+                            <option selected value='false'>False</option>
+                        {% else %}
+                            <option value='false'>False</option>
+                        {% endif %}
+                    </select>
+                    <label>New Total Support Flag</label><br />
+                    <label for="colTsPercent"></label><input class="w3-input" name="colTsPercent" id="colTsPercent" type="text" value="{{ colTsPercent }}">
+                    <label>New Total Support Percent</label><br /><br />
+                    <input class="w3-button w3-blue w3-block" type="submit" value="Update Category">
+                </form>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.twig" %}
+{% block title %}ESP Plans{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <div class="w3-row">
+            <div class="w3-col s2">&nbsp;</div>
+                <div class="w3-col s8 w3-center">
+                    <h1>{{ category.colName }} ESP Plans</h1>
+                        <a href="#" onclick="history.back()"><i class="material-icons w3-text-red">subdirectory_arrow_left</i></a>
+                        <a href="/plan/add/{{ category.colId }}"><i class="material-icons w3-text-red">add_circle_outline</i></a>
+                    <table class="w3-table-all">
+                        <tr>
+                            <th>Plan Name</th>
+                            <th>Start Value</th>
+                            <th>End Value</th>
+                            <th>Tier 1 Term</th>
+                            <th>Tier 1 Cost</th>
+                            <th>Tier 1 SKU</th>
+                            <th>Tier 2 Term</th>
+                            <th>Tier 2 Cost</th>
+                            <th>Tier 2 SKU</th>
+                            <th>Options</th>
+                        </tr>
+                        {% for plan in plans %}
+                            <tr>
+                                <td>{{ plan.colName }}</td>
+                                <td>{{ plan.colMin }}</td>
+                                {% if plan.colMax == 99999.99 %}
+                                    <td> ------</td>
+                                {% else %}
+                                    <td>{{ plan.colMax }}</td>
+                                {% endif %}
+                                <td>{{ plan.colTier1term }}</td>
+                                <td>{{ plan.colTier1cost }}</td>
+                                <td>{{ plan.colTier1sku }}</td>
+                                {% if plan.colTier2term == "" %}
+                                    <td> ------</td>
+                                    <td> ------</td>
+                                    <td> ------</td>
+                                {% else %}
+                                    <td>{{ plan.colTier2term }}</td>
+                                    <td>{{ plan.colTier2cost }}</td>
+                                    <td>{{ plan.colTier2sku }}</td>
+                                {% endif %}
+                                <td>
+                                    <a href="/plan/deletePlan/{{ category.colId }}/{{ plan.colId }}"><i class="material-icons w3-text-red">delete</i></a>
+                                    <a href="/plan/update/{{ category.colId }}/{{ plan.colId }}"><i class="material-icons w3-text-red">update</i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.twig" %}
+{% block title %}Add ESP Category{% endblock %}
+{% block body%}
+    <div class="w3-row">
+        <div class="w3-col s4">&nbsp;</div>
+        <div class="w3-col s4 w3-center">
+            <h1>Add ESP Category</h1>
+            <a href="/category/index">
+                <i class="material-icons" style="font-size:24px;color:red">add_circle_outline</i>
+            </a>
+            <div class="w3-panel w2-border">
+                <form class="w3-container" action="/category/addData" method="post">
+                    <input class="w3-input" name="colName" id="colName" type="text">
+                    <label for="colName">Category Name</label>
+                    <label>
+                        <select class="w3-select" name="colTsFlag">
+                            <option value="" disabled selected>  </option>
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </label>
+                    <label>Total Support Flag</label><br />
+                    <input class="w3-input" name="colTsPercent" id="colTsPercent" type="number">
+                    <label for="colTsPercent">Total Support Percent</label><br /><br />
+                    <input class="w3-button w3-blue w3-block" type="submit" value="Add Category"><br/>
+                    <label>
+                        <input class="w3-button w3-blue w3-block" value="Go Back" onclick="history.back()">
+                    </label>
+                </form>
+            </div>
+        </div>
+        <div class="w3-col s4">&nbsp;</div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+# This file contains the public/.htaccess file for project TCP-0001
+#
+# File Information:
+# Project Name: TCP-0001
+# Module Name: Public
+# File Name: .htaccess
+# Author: Troy L Marker
+# Language: Apache Server Config
+#
+# File Last Modified: 03/23/2023
+# File Authored on: 03/23/2023
+# File Copyright: 03/2023
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]

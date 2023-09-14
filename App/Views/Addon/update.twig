@@ -1,0 +1,39 @@
+{% extends "layout.twig" %}
+{% block title %}Update Plan{% endblock %}
+{% block body %}
+    <div class="w3-row">
+        <div class="w3-col s4">&nbsp;</div>
+        <div class="w3-col s4 w3-center">
+            <h4>Update an addon</h4>
+            <a href="#" onclick="history.back()"><i class="material-icons w3-text-red">subdirectory_arrow_left</i></a>
+            <form action="/addon/updateAddon" method="post">
+                <input name="colId" id="colId" type="hidden" value="{{ addon.colId }}">
+                <input name="colPid" id="colPid" type="hidden" value="{{ addon.colPid }}">
+                <hr style="height: 1px; background-color: #777777" />
+                <table style="width: 100%">
+                    <tr>
+                        <td>
+                            <label for="colTitle">Addon Title</label>
+                            <input class="w3-input" name="colTitle" id="colTitle" type="text" value="{{ addon.colTitle }}">
+                        </td>
+                    </tr>
+                </table>
+                <hr style="height: 1px; background-color: #777777" />
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 50%;">
+                            <label for="colCost">Addon Cost</label>
+                            <input class="w3-input" type="number" name="colCost" step="0.01" id="colCost" value="{{ addon.colCost }}">
+                        </td>
+                        <td style="width: 50%;">
+                            <label for="colSku">Addon SKU</label>
+                            <input class="w3-input" type="text" name="colSku" id="colSku" value="{{ addon.colSku }}">
+                        </td>
+                    </tr>
+                </table>
+                <hr style="height: 1px; background-color: #777777" />
+                <input class="w3-button w3-blue w3-block" type="submit" value="Update Addon">
+            </form>
+        </div>
+    </div>
+{% endblock %}

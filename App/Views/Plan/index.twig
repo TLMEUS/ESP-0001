@@ -1,0 +1,26 @@
+{% extends "layout.twig" %}
+
+{% block title %}ESP Plans{% endblock %}
+
+{% block body%}
+
+<div class="w3-container">
+    <div class="w3-row">
+        <div class="w3-col s4">&nbsp;</div>
+        <div class="w3-col s4 w3-center">
+            <h1>ESP Plans</h1>
+            <form class="c3-container" action="/plan/list" method="post">
+                <label>
+                    <select class="w3-select" name="colId">
+                        {%  for category in categories %}
+                            <option value="{{ category.colId }}">{{ category.colName }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>Please select a Category</label><br /><br />
+                <input class="w3-button w3-blue w3-block" type="submit" value="List Plans">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

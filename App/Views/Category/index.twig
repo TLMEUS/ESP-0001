@@ -1,0 +1,37 @@
+{% extends "layout.twig" %}
+{% block title %}ESP Categories{% endblock %}
+{% block body%}
+    <div class="w3-row">
+        <div class="w3-col s4">&nbsp;</div>
+        <div class="w3-col s4 w3-center">
+            <h1>ESP Category List</h1>
+            <a href="/category/add">
+                <i class="material-icons" style="font-size:24px;color:red">add_circle_outline</i>
+            </a>
+            <table class="w3-table-all">
+                <tr>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Total Support Flag</th>
+                    <th>Total Support Percent</th>
+                </tr>
+                {% for category in categories %}
+                    <tr>
+                        <td><a id="id" href="/category/update/{{ category.colId }}" class="w3-text-red" style="text-decoration: none;">{{ category.colId }}</a></td>
+                        <td>{{ category.colName }}</td>
+                        <td class="w3-center">
+                            {% if category.colTsFlag == 0 %}
+                                false
+                            {% else %}
+                                true
+                            {% endif %}
+                        </td>
+                        <td class="w3-center">
+                            {{ category.colTsPercent }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

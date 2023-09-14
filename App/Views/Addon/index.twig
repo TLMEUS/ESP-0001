@@ -1,0 +1,21 @@
+{% extends "layout.twig" %}
+{% block title %}ESP Addon{% endblock %}
+{% block body%}
+    <div class="w3-row">
+        <div class="w3-col s4">&nbsp;</div>
+        <div class="w3-col s4 w3-center">
+            <h3>ESP Addon</h3>
+            <form class="c3-container" action="/addon/list" method="post">
+                <label>
+                    <select class="w3-select" name="id">
+                        {%  for category in categories %}
+                            <option value="{{ category.colId }}">{{ category.colName }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>Please select a Category</label><br /><br />
+                <input class="w3-button w3-blue w3-block" type="submit" value="List Addons">
+            </form>
+        </div>
+    </div>
+{% endblock %}
